@@ -37,6 +37,7 @@
 		2912A158207C9BA30031F728 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912A157207C9BA30031F728 /* NetworkTool.m */; };
 		2912A15F207DAACC0031F728 /* UIViewController+NetTaskStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912A15E207DAACC0031F728 /* UIViewController+NetTaskStore.m */; };
 		2989245320B3EB2D00480CB5 /* MCMethodLimiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2989245220B3EB2C00480CB5 /* MCMethodLimiter.m */; };
+		29FA252520B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,8 @@
 		2912A15E207DAACC0031F728 /* UIViewController+NetTaskStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NetTaskStore.m"; sourceTree = "<group>"; };
 		2989245120B3EB2C00480CB5 /* MCMethodLimiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMethodLimiter.h; sourceTree = "<group>"; };
 		2989245220B3EB2C00480CB5 /* MCMethodLimiter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMethodLimiter.m; sourceTree = "<group>"; };
+		29FA252320B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HidenWithLayoutConstraints.h"; sourceTree = "<group>"; };
+		29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HidenWithLayoutConstraints.m"; sourceTree = "<group>"; };
 		30345C1757A24D4E7DCBAA25 /* Pods-base_project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-base_project.release.xcconfig"; path = "Pods/Target Support Files/Pods-base_project/Pods-base_project.release.xcconfig"; sourceTree = "<group>"; };
 		443EBD742C2438B812261876 /* Pods-zx_jiatingsenlin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zx_jiatingsenlin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zx_jiatingsenlin/Pods-zx_jiatingsenlin.debug.xcconfig"; sourceTree = "<group>"; };
 		69DC38700E423FD9997E58BD /* Pods-zx_jiatingsenlin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zx_jiatingsenlin.release.xcconfig"; path = "Pods/Target Support Files/Pods-zx_jiatingsenlin/Pods-zx_jiatingsenlin.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +212,7 @@
 		2912A0F8207C57620031F728 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				29FA252220B3EEFC00791433 /* UIView+HidenWithLayoutConstraints */,
 				2912A15C207DAA8C0031F728 /* UIViewController+NetTaskStore */,
 				2912A133207C8F680031F728 /* MBProgressHUD+SVPLike */,
 				2912A121207C5ABE0031F728 /* UIImage+ChangeSize */,
@@ -457,6 +461,15 @@
 			path = MethodLimiter;
 			sourceTree = "<group>";
 		};
+		29FA252220B3EEFC00791433 /* UIView+HidenWithLayoutConstraints */ = {
+			isa = PBXGroup;
+			children = (
+				29FA252320B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.h */,
+				29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */,
+			);
+			path = "UIView+HidenWithLayoutConstraints";
+			sourceTree = "<group>";
+		};
 		AF766DDA74C5F97144B36656 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +621,7 @@
 				2912A0FC207C57C00031F728 /* UIImage+Image.m in Sources */,
 				2912A0E5207C51100031F728 /* main.m in Sources */,
 				2912A0D7207C51100031F728 /* AppDelegate.m in Sources */,
+				29FA252520B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m in Sources */,
 				2912A13C207C8FCF0031F728 /* LayoutFit.m in Sources */,
 				2912A14F207C977F0031F728 /* MCButton.m in Sources */,
 				2912A154207C98ED0031F728 /* MCParamenter.m in Sources */,
