@@ -24,6 +24,12 @@
 {
     self = [super init];
     if (self) {
+        //        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        //        config.requestCachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+        //        //设置请求时不走手机现在设置的http代理，防止抓包
+        //        config.connectionProxyDictionary = @{};
+        //        self.manager = [[AFHTTPSessionManager alloc] initWithBaseURL:nil sessionConfiguration:config];
+        
         self.manager = [AFHTTPSessionManager manager];
         self.manager.requestSerializer = [AFHTTPRequestSerializer serializer];//请求
         //self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];//响应
@@ -31,11 +37,12 @@
         [self.manager.requestSerializer willChangeValueForKey:@"timeoutInterval"];
         self.manager.requestSerializer.timeoutInterval = 10.f;
         [self.manager.requestSerializer didChangeValueForKey:@"timeoutInterval"];
-//        [self.manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//        [self.manager.requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
-//        [self.manager.requestSerializer setValue:@"APIClient Platform/iOS" forHTTPHeaderField:@"User-agent"];
-//        [self.manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-//        self.manager.requestSerializer.HTTPShouldHandleCookies = YES;
+        self.manager.session.configuration.connectionProxyDictionary = @{};
+        //        [self.manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        //        [self.manager.requestSerializer setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
+        //        [self.manager.requestSerializer setValue:@"APIClient Platform/iOS" forHTTPHeaderField:@"User-agent"];
+        //        [self.manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        //        self.manager.requestSerializer.HTTPShouldHandleCookies = YES;
     }
     return self;
 }
@@ -43,7 +50,6 @@
 - (NSURLSessionDataTask *)postWithURL:(NSString *)url
                            parameters:(NSDictionary *)parameters
                              getCache:(BOOL)getCache
-                            cacheData:(BOOL)cacheData
                               showHUD:(BOOL)showHUD
                               success:(void (^)(id response, BOOL isCache))success
                               failure:(void (^)(NSString *errorString, id response, NSError *error))failure
@@ -57,13 +63,6 @@
     }
      */
     if (getCache && success) {
-        id response = [NetworkTool getCacheWithNameString:pathString];
-        if (response) {
-            success(response, YES);
-            return nil;
-        }
-    }
-    if (cacheData && success) {
         id response = [NetworkTool getCacheWithNameString:pathString];
         if (response) {
             success(response, YES);
@@ -84,7 +83,9 @@
         if ([state isEqualToString:@"success"]) {
             //成功
             success(responseObject, NO);
-            [NetworkTool cacheDataWithFileNameString:pathString responseObject:responseObject];
+            if (getCache) {
+                [NetworkTool cacheDataWithFileNameString:pathString responseObject:responseObject];
+            }
         }else {
             //失败
             NSString *errorString = responseObject[@"message"];
@@ -122,7 +123,6 @@
 - (NSURLSessionDataTask *)getWithURL:(NSString *)url
                           parameters:(NSDictionary *)parameters
                             getCache:(BOOL)getCache
-                           cacheData:(BOOL)cacheData
                              showHUD:(BOOL)showHUD
                              success:(void (^)(id response, BOOL isCache))success
                              failure:(void (^)(NSString *errorString, id response, NSError *error))failure
@@ -136,13 +136,6 @@
      }
      */
     if (getCache && success) {
-        id response = [NetworkTool getCacheWithNameString:pathString];
-        if (response) {
-            success(response, YES);
-            return nil;
-        }
-    }
-    if (cacheData && success) {
         id response = [NetworkTool getCacheWithNameString:pathString];
         if (response) {
             success(response, YES);
@@ -163,7 +156,9 @@
         if ([state isEqualToString:@"success"]) {
             //成功
             success(responseObject, NO);
-            [NetworkTool cacheDataWithFileNameString:pathString responseObject:responseObject];
+            if (getCache) {
+                [NetworkTool cacheDataWithFileNameString:pathString responseObject:responseObject];
+            }
         }else {
             //失败
             NSString *errorString = responseObject[@"message"];
@@ -237,8 +232,9 @@
 }
 
 + (NSError *)deleteCache {
-    NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *netCachesDir = [cachesDir stringByAppendingPathComponent:@"ZXNetCache"];
+    //NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *tempDir = NSTemporaryDirectory();
+    NSString *netCachesDir = [tempDir stringByAppendingPathComponent:@"ZXNetCache"];
     NSFileManager *fileMgr = [NSFileManager defaultManager];
     BOOL bRet = [fileMgr fileExistsAtPath:netCachesDir];
     if (bRet) {
@@ -251,8 +247,9 @@
 
 #pragma mark 缓存路径
 + (NSString *)cachePathWithNameString:(NSString *)nameString {
-    NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *netCachesDir = [cachesDir stringByAppendingPathComponent:@"ZXNetCache"];
+    //NSString *cachesDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *tempDir = NSTemporaryDirectory();
+    NSString *netCachesDir = [tempDir stringByAppendingPathComponent:@"ZXNetCache"];
     BOOL isDir = NO;
     BOOL exist = [[NSFileManager defaultManager] fileExistsAtPath:netCachesDir isDirectory:&isDir];
     if (!exist) {

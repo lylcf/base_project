@@ -21,7 +21,6 @@
 - (NSURLSessionDataTask *)postWithURL:(NSString *)url
                            parameters:(NSDictionary *)parameters
                              getCache:(BOOL)getCache
-                            cacheData:(BOOL)cacheData
                               showHUD:(BOOL)showHUD
                               success:(void (^)(id response, BOOL isCache))success
                               failure:(void (^)(NSString *errorString, id response, NSError *error))failure;
@@ -29,7 +28,6 @@
 - (NSURLSessionDataTask *)getWithURL:(NSString *)url
                           parameters:(NSDictionary *)parameters
                             getCache:(BOOL)getCache
-                           cacheData:(BOOL)cacheData
                              showHUD:(BOOL)showHUD
                              success:(void (^)(id response, BOOL isCache))success
                              failure:(void (^)(NSString *errorString, id response, NSError *error))failure;

@@ -140,7 +140,6 @@
 		2912A0D4207C51100031F728 /* base_project */ = {
 			isa = PBXGroup;
 			children = (
-				2912A155207C9B520031F728 /* NetworkTool(网络请求) */,
 				2912A13D207C93B00031F728 /* AppUI */,
 				2912A125207C5D6E0031F728 /* Tools */,
 				2912A0F8207C57620031F728 /* Category */,
@@ -329,6 +328,7 @@
 		2912A125207C5D6E0031F728 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2912A155207C9B520031F728 /* NetworkTool(网络请求) */,
 				2989245020B3EB2C00480CB5 /* MethodLimiter */,
 				2912A151207C987F0031F728 /* ParamenterMaker(网络请求参数整合工具) */,
 				2912A139207C8FCF0031F728 /* LayoutFit(屏幕等比例适配工具) */,
