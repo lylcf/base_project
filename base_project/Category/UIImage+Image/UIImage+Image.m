@@ -10,91 +10,64 @@
 
 @implementation UIImage (Image)
 
-+ (instancetype)imageNameWithOriginal:(NSString *)imageName
-{
-   UIImage *image = [UIImage imageNamed:imageName];
-     // 返回一个没有渲染图片
-    return [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
++ (instancetype)horizonStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius {
+    return [self stretchableImageWithColor:color radius:radius size:CGSizeZero type:1];
 }
 
-+ (instancetype)imageWithStretchableName:(NSString *)imageName
-{
-    UIImage *image = [UIImage imageNamed:imageName];
-    return [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
-    
++ (instancetype)verticalStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius {
+    return [self stretchableImageWithColor:color radius:radius size:CGSizeZero type:2];
 }
 
-+ (instancetype)stretchableCircleImageWithColor:(UIColor *)color radius:(CGFloat)radius {
-    UIImage *image = [UIImage imageWithColor:color size:CGSizeMake(radius*2+2, radius*2)];
++ (instancetype)stretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius {
+    return [self stretchableImageWithColor:color radius:radius size:CGSizeZero type:0];
+}
+
++ (instancetype)horizonStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius size:(CGSize)size {
+    return [self stretchableImageWithColor:color radius:radius size:size type:1];
+}
+
++ (instancetype)verticalStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius size:(CGSize)size {
+    return [self stretchableImageWithColor:color radius:radius size:size type:2];
+}
+
++ (instancetype)stretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius size:(CGSize)size {
+    return [self stretchableImageWithColor:color radius:radius size:size type:0];
+}
+
++ (instancetype)stretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius size:(CGSize)size type:(NSInteger)type {
+    CGSize imageSize = CGSizeZero;
+    if (CGSizeEqualToSize(size, CGSizeZero)) {
+        if (type==1) {
+            imageSize = CGSizeMake(ceil(radius)*2+1, radius*2);
+        }else if (type==2) {
+            imageSize = CGSizeMake(radius*2, ceil(radius)*2+1);
+        }else {
+            imageSize = CGSizeMake(ceil(radius)*2+1, ceil(radius)*2+1);
+        }
+    }else {
+        imageSize = CGSizeMake(MAX(size.width, radius*2), MAX(size.height, radius*2));
+    }
+    UIImage *image = [self imageWithColor:color size:imageSize];
     UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
     UIBezierPath *clipPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, image.size.width, image.size.height) cornerRadius:radius];
     [clipPath addClip];
     [image drawAtPoint:CGPointZero];
     UIImage *newimage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    return [newimage stretchableImageWithLeftCapWidth:radius+1 topCapHeight:0];
+    if (type==1) {
+        //水平拉伸
+        return [newimage stretchableImageWithLeftCapWidth:ceil(radius) topCapHeight:0];
+    }
+    if (type==2) {
+        //垂直拉伸
+        return [newimage stretchableImageWithLeftCapWidth:0 topCapHeight:ceil(radius)];
+    }
+    //水平&垂直拉伸
+    return [newimage stretchableImageWithLeftCapWidth:ceil(radius) topCapHeight:ceil(radius)];
 }
 
-// 生成一个圆角图片
-- (UIImage *)circleImage
-{
-    // 裁剪图片: 图形上下文
-    // 1.开启图形上下文
-    // scale:比例因素 点:像素比例 0:自动识别比例因素
-    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0);
-    // 2.描述圆形裁剪路径
-    UIBezierPath *clipPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, self.size.width, self.size.height)];
-    // 3.设置为裁剪区域
-    [clipPath addClip];
-    // 4.画图片
-    [self drawAtPoint:CGPointZero];
-    // 5.取出图片
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    // 6.关闭上下文
-    UIGraphicsEndImageContext();
-    
-    return image;
-}
-+ (UIImage *)imageWithBorderW:(CGFloat)borderW borderColor:(UIColor *)color image:(UIImage *)image{
-    //    1.开启一个和原始图片一样大小的位图上下文.
-    CGSize size = CGSizeMake(image.size.width + 2 *borderW, image.size.height + 2 * borderW);
-    UIGraphicsBeginImageContextWithOptions(size,NO,0);
-    //    2.绘制一个大圆,填充
-    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, size.width, size.height)];
-    [color set];
-    [path fill];
-    //    3.添加一个裁剪区域.
-    path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(borderW, borderW, image.size.width, image.size.height)];
-    [path addClip];
-    //    4.把图片绘制到裁剪区域当中.
-    [image drawAtPoint:CGPointMake(borderW, borderW)];
-    //    5.生成一张新图片.
-    UIImage *clipImage = UIGraphicsGetImageFromCurrentImageContext();
-    //    6.关闭上下文.
-    UIGraphicsEndImageContext();
-    
-    return clipImage;
-    
-}
-
-+ (UIImage *)imageWithColor:(UIColor *)color
-{
-    // 描述矩形
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    // 开启位图上下文
-    UIGraphicsBeginImageContext(rect.size);
-    // 获取位图上下文
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    // 使用color演示填充上下文
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    // 渲染上下文
-    CGContextFillRect(context, rect);
-    // 从上下文中获取图片
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    // 结束上下文
-    UIGraphicsEndImageContext();
-    
-    return theImage;
++ (UIImage *)imageWithColor:(UIColor *)color {
+    return [self imageWithColor:color size:CGSizeMake(1.0, 1.0)];
 }
 
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
@@ -123,25 +96,4 @@
     return newImage;
 }
 
-
-// 在周边加一个边框为1的透明像素
-- (UIImage *)imageAntialias
-{
-    CGFloat border = 1.0f;
-    CGRect rect = CGRectMake(border, border, self.size.width-2*border, self.size.height-2*border);
-    
-    UIImage *img = nil;
-    
-    UIGraphicsBeginImageContext(CGSizeMake(rect.size.width,rect.size.height));
-    [self drawInRect:CGRectMake(-1, -1, self.size.width, self.size.height)];
-    img = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    UIGraphicsBeginImageContext(self.size);
-    [img drawInRect:rect];
-    UIImage* antiImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    return antiImage;
-}
 @end

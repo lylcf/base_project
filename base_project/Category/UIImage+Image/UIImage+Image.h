@@ -11,72 +11,48 @@
 @interface UIImage (Image)
 
 /**
- *   加载最原始的图片，没有渲染
- *
- *  @param imageName 要加载的图片的名字
- *
- *  @return 返回一张没经过渲染的原图
- */
-+ (instancetype)imageNameWithOriginal:(NSString *)imageName;
-
-
-/**
- *  创建一个内容可拉伸，而边角不拉伸的图片
- *  @param imageName 加载的图片
- *
- *  @return 返回内容没有拉伸的图片
- */
-+ (instancetype)imageWithStretchableName:(NSString *)imageName;
-
-
-/**
- 创建一个横向拉伸，有圆角的图片
-
+ 创建一个可拉伸，有圆角的图片
+ 
  @param color 颜色
  @param radius 圆角半径
  @return 图片
  */
-+ (instancetype)stretchableCircleImageWithColor:(UIColor *)color radius:(CGFloat)radius;
+//水平拉伸
++ (instancetype)horizonStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius;
 
-// 生成一个圆角图片
-- (UIImage *)circleImage;
++ (instancetype)horizonStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius size:(CGSize)size;
+//垂直拉伸
++ (instancetype)verticalStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius;
 
-/**
- *   根据传入的图片,生成一终带有边框的圆形图片;borderW边框宽度;borderColor:边框颜色;image:要生成的原始图片.
- *
- *  @param borderW 边框
- *  @param color   边框夜色
- *  @param image   需要裁剪的图片
- *
- *  @return 返回一张带边框的圆形图片
- */
-+ (UIImage *)imageWithBorderW:(CGFloat)borderW borderColor:(UIColor *)color image:(UIImage *)image;
++ (instancetype)verticalStretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius size:(CGSize)size;
+//水平&垂直拉伸
++ (instancetype)stretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius;
 
++ (instancetype)stretchableImageWithColor:(UIColor *)color radius:(CGFloat)radius size:(CGSize)size;
 
 /**
- *  根据颜色生成一张尺寸为1*1的相同颜色图片
- *
- *  @param color 颜色
- *
- *  @return 返回一张相同颜色的图片
+ 根据颜色生成一张尺寸为1*1的纯色图片
+
+ @param color 颜色
+ @return 纯色图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
 
+/**
+ 根据颜色、大小生成一张纯色图片
+
+ @param color 颜色
+ @param size 大小
+ @return 纯色图片
+ */
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
 
 /**
- *  截取view视图上的内容生成一张图片
- *
- *  @param view 需要截取的view的内容
- *
- *  @return 返回一张view视图上的图片
+ 截取view视图上的内容生成一张图片
+
+ @param view 需要截取的view的内容
+ @return 一张view视图上的图片
  */
 + (UIImage *)imageWithView:(UIView *)view;
 
-/**
- *  返回一张抗锯齿图片本质：在图片生成一个透明为1的像素边框
- *
- *  @return 返回一张抗锯齿图片本质
- */
-- (UIImage *)imageAntialias;
 @end
