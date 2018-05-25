@@ -48,12 +48,15 @@
         imageSize = CGSizeMake(MAX(size.width, radius*2), MAX(size.height, radius*2));
     }
     UIImage *image = [self imageWithColor:color size:imageSize];
-    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
-    UIBezierPath *clipPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, image.size.width, image.size.height) cornerRadius:radius];
-    [clipPath addClip];
-    [image drawAtPoint:CGPointZero];
-    UIImage *newimage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    UIImage *newimage = image;
+    if (radius!=0) {
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, 0);
+        UIBezierPath *clipPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, image.size.width, image.size.height) cornerRadius:radius];
+        [clipPath addClip];
+        [image drawAtPoint:CGPointZero];
+        newimage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
     if (type==1) {
         //水平拉伸
         return [newimage stretchableImageWithLeftCapWidth:ceil(radius) topCapHeight:0];
