@@ -19,9 +19,6 @@
  
  如果ViewController是NavigationController的根控制器
      1.在NavigationController里：
-     - (UIStatusBarStyle)preferredStatusBarStyle {
-         return self.statusBarStyle;
-     }
      - (UIViewController *)childViewControllerForStatusBarStyle {
          return self.topViewController;
      }
@@ -29,6 +26,9 @@
      - (void)viewDidLoad {
          [super viewDidLoad];
          self.statusBarStyle = ...;
+     }
+     - (void)viewWillAppear:(BOOL)animated {
+         [self setNeedsStatusBarAppearanceUpdate];
      }
      - (UIStatusBarStyle)preferredStatusBarStyle {
          return self.statusBarStyle;

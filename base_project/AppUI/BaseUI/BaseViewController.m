@@ -26,6 +26,7 @@
     [self.navigationController setNavigationBarHidden:self.hidNavigationBar animated:YES];
     [IQKeyboardManager sharedManager].enable = self.KBManagerEnable;
     [IQKeyboardManager sharedManager].enableAutoToolbar = self.KBManagerEnable;
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent {

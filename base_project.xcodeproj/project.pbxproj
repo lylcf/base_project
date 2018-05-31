@@ -37,6 +37,7 @@
 		2912A158207C9BA30031F728 /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912A157207C9BA30031F728 /* NetworkTool.m */; };
 		2912A15F207DAACC0031F728 /* UIViewController+NetTaskStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912A15E207DAACC0031F728 /* UIViewController+NetTaskStore.m */; };
 		2989245320B3EB2D00480CB5 /* MCMethodLimiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2989245220B3EB2C00480CB5 /* MCMethodLimiter.m */; };
+		29F2447E20BFA790005516E8 /* TowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F2447D20BFA790005516E8 /* TowViewController.m */; };
 		29FA252520B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,8 @@
 		2912A15E207DAACC0031F728 /* UIViewController+NetTaskStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NetTaskStore.m"; sourceTree = "<group>"; };
 		2989245120B3EB2C00480CB5 /* MCMethodLimiter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMethodLimiter.h; sourceTree = "<group>"; };
 		2989245220B3EB2C00480CB5 /* MCMethodLimiter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMethodLimiter.m; sourceTree = "<group>"; };
+		29F2447C20BFA790005516E8 /* TowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TowViewController.h; sourceTree = "<group>"; };
+		29F2447D20BFA790005516E8 /* TowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TowViewController.m; sourceTree = "<group>"; };
 		29FA252320B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HidenWithLayoutConstraints.h"; sourceTree = "<group>"; };
 		29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HidenWithLayoutConstraints.m"; sourceTree = "<group>"; };
 		30345C1757A24D4E7DCBAA25 /* Pods-base_project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-base_project.release.xcconfig"; path = "Pods/Target Support Files/Pods-base_project/Pods-base_project.release.xcconfig"; sourceTree = "<group>"; };
@@ -400,6 +403,8 @@
 			children = (
 				2912A0D8207C51100031F728 /* ViewController.h */,
 				2912A0D9207C51100031F728 /* ViewController.m */,
+				29F2447C20BFA790005516E8 /* TowViewController.h */,
+				29F2447D20BFA790005516E8 /* TowViewController.m */,
 			);
 			name = "MainUI(APP主界面)";
 			path = MainUI;
@@ -610,6 +615,7 @@
 				2912A142207C94220031F728 /* BaseViewController.m in Sources */,
 				2912A108207C58AA0031F728 /* NSArray+ElegantNil.m in Sources */,
 				2912A11C207C5A550031F728 /* NSString+MD5For32Bit.m in Sources */,
+				29F2447E20BFA790005516E8 /* TowViewController.m in Sources */,
 				2912A114207C59410031F728 /* UIColor+Hex.m in Sources */,
 				2912A10C207C58CC0031F728 /* NSDictionary+ElegantNil.m in Sources */,
 				2912A145207C943D0031F728 /* BaseNavigationController.m in Sources */,

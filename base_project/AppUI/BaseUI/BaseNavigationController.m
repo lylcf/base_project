@@ -38,12 +38,8 @@
     [super setViewControllers:viewControllers animated:animated];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return self.statusBarStyle;
-}
-
 - (UIViewController *)childViewControllerForStatusBarStyle {
-    return self.topViewController;
+    return self.visibleViewController;
 }
 
 #pragma mark - UIGestureRecognizerDelegate
