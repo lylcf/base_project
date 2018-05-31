@@ -28,6 +28,7 @@
 
 - (void)setStatusBarStyle:(UIStatusBarStyle)statusBarStyle {
     objc_setAssociatedObject(self, @selector(statusBarStyle), @(statusBarStyle), OBJC_ASSOCIATION_RETAIN);
+    [self setNeedsStatusBarAppearanceUpdate];
 }
 
 - (UIStatusBarStyle)statusBarStyle {

@@ -17,21 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.statusBarStyle = UIStatusBarStyleLightContent;
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    [button setTitle:@"改变导航栏颜色" forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(changeStatusBar) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.offset(0);
+    }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)changeStatusBar {
+    if (self.statusBarStyle==UIStatusBarStyleDefault) {
+        self.statusBarStyle = UIStatusBarStyleLightContent;
+    }else {
+        self.statusBarStyle = UIStatusBarStyleDefault;
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
