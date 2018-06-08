@@ -23,6 +23,8 @@
 
 #import "UIImage+Image.h"
 
+#import "UIAlertController+Show.h"
+
 //================================其他工具======================================//
 
 #import "LayoutFit.h"

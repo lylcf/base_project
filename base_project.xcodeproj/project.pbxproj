@@ -39,6 +39,7 @@
 		2989245320B3EB2D00480CB5 /* MCMethodLimiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2989245220B3EB2C00480CB5 /* MCMethodLimiter.m */; };
 		29F2447E20BFA790005516E8 /* TowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F2447D20BFA790005516E8 /* TowViewController.m */; };
 		29FA252520B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */; };
+		29FCC13A20CA21CD00FB8EC6 /* UIAlertController+Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FCC13820CA21CD00FB8EC6 /* UIAlertController+Show.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,8 @@
 		29F2447D20BFA790005516E8 /* TowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TowViewController.m; sourceTree = "<group>"; };
 		29FA252320B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HidenWithLayoutConstraints.h"; sourceTree = "<group>"; };
 		29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HidenWithLayoutConstraints.m"; sourceTree = "<group>"; };
+		29FCC13820CA21CD00FB8EC6 /* UIAlertController+Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Show.m"; sourceTree = "<group>"; };
+		29FCC13920CA21CD00FB8EC6 /* UIAlertController+Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Show.h"; sourceTree = "<group>"; };
 		30345C1757A24D4E7DCBAA25 /* Pods-base_project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-base_project.release.xcconfig"; path = "Pods/Target Support Files/Pods-base_project/Pods-base_project.release.xcconfig"; sourceTree = "<group>"; };
 		443EBD742C2438B812261876 /* Pods-zx_jiatingsenlin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zx_jiatingsenlin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-zx_jiatingsenlin/Pods-zx_jiatingsenlin.debug.xcconfig"; sourceTree = "<group>"; };
 		69DC38700E423FD9997E58BD /* Pods-zx_jiatingsenlin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-zx_jiatingsenlin.release.xcconfig"; path = "Pods/Target Support Files/Pods-zx_jiatingsenlin/Pods-zx_jiatingsenlin.release.xcconfig"; sourceTree = "<group>"; };
@@ -215,6 +218,7 @@
 		2912A0F8207C57620031F728 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				29FCC13720CA21AF00FB8EC6 /* UIAlertController+Show */,
 				29FA252220B3EEFC00791433 /* UIView+HidenWithLayoutConstraints */,
 				2912A15C207DAA8C0031F728 /* UIViewController+NetTaskStore */,
 				2912A133207C8F680031F728 /* MBProgressHUD+SVPLike */,
@@ -401,10 +405,10 @@
 		2912A14A207C95E60031F728 /* MainUI(APP主界面) */ = {
 			isa = PBXGroup;
 			children = (
-				2912A0D8207C51100031F728 /* ViewController.h */,
-				2912A0D9207C51100031F728 /* ViewController.m */,
 				29F2447C20BFA790005516E8 /* TowViewController.h */,
 				29F2447D20BFA790005516E8 /* TowViewController.m */,
+				2912A0D8207C51100031F728 /* ViewController.h */,
+				2912A0D9207C51100031F728 /* ViewController.m */,
 			);
 			name = "MainUI(APP主界面)";
 			path = MainUI;
@@ -473,6 +477,15 @@
 				29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */,
 			);
 			path = "UIView+HidenWithLayoutConstraints";
+			sourceTree = "<group>";
+		};
+		29FCC13720CA21AF00FB8EC6 /* UIAlertController+Show */ = {
+			isa = PBXGroup;
+			children = (
+				29FCC13920CA21CD00FB8EC6 /* UIAlertController+Show.h */,
+				29FCC13820CA21CD00FB8EC6 /* UIAlertController+Show.m */,
+			);
+			path = "UIAlertController+Show";
 			sourceTree = "<group>";
 		};
 		AF766DDA74C5F97144B36656 /* Pods */ = {
@@ -611,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2912A148207C94550031F728 /* BaseTabBarController.m in Sources */,
+				29FCC13A20CA21CD00FB8EC6 /* UIAlertController+Show.m in Sources */,
 				2912A137207C8F790031F728 /* MBProgressHUD+SVPLike.m in Sources */,
 				2912A142207C94220031F728 /* BaseViewController.m in Sources */,
 				2912A108207C58AA0031F728 /* NSArray+ElegantNil.m in Sources */,
