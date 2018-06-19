@@ -23,6 +23,8 @@
 
 #import "UIImage+Image.h"
 
+#import "UIImage+load.h"
+
 #import "UIAlertController+Show.h"
 
 //================================其他工具======================================//

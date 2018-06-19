@@ -39,6 +39,7 @@
 		2989245320B3EB2D00480CB5 /* MCMethodLimiter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2989245220B3EB2C00480CB5 /* MCMethodLimiter.m */; };
 		29F2447E20BFA790005516E8 /* TowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F2447D20BFA790005516E8 /* TowViewController.m */; };
 		29FA252520B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */; };
+		29FC372220D88D54003DD1B0 /* UIImage+load.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FC372120D88D54003DD1B0 /* UIImage+load.m */; };
 		29FCC13A20CA21CD00FB8EC6 /* UIAlertController+Show.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FCC13820CA21CD00FB8EC6 /* UIAlertController+Show.m */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,8 @@
 		29F2447D20BFA790005516E8 /* TowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TowViewController.m; sourceTree = "<group>"; };
 		29FA252320B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HidenWithLayoutConstraints.h"; sourceTree = "<group>"; };
 		29FA252420B3EEFC00791433 /* UIView+HidenWithLayoutConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HidenWithLayoutConstraints.m"; sourceTree = "<group>"; };
+		29FC372020D88D54003DD1B0 /* UIImage+load.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+load.h"; sourceTree = "<group>"; };
+		29FC372120D88D54003DD1B0 /* UIImage+load.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+load.m"; sourceTree = "<group>"; };
 		29FCC13820CA21CD00FB8EC6 /* UIAlertController+Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Show.m"; sourceTree = "<group>"; };
 		29FCC13920CA21CD00FB8EC6 /* UIAlertController+Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Show.h"; sourceTree = "<group>"; };
 		30345C1757A24D4E7DCBAA25 /* Pods-base_project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-base_project.release.xcconfig"; path = "Pods/Target Support Files/Pods-base_project/Pods-base_project.release.xcconfig"; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 		2912A0F8207C57620031F728 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				29FC371F20D88D04003DD1B0 /* UIImage+load */,
 				29FCC13720CA21AF00FB8EC6 /* UIAlertController+Show */,
 				29FA252220B3EEFC00791433 /* UIView+HidenWithLayoutConstraints */,
 				2912A15C207DAA8C0031F728 /* UIViewController+NetTaskStore */,
@@ -479,6 +483,15 @@
 			path = "UIView+HidenWithLayoutConstraints";
 			sourceTree = "<group>";
 		};
+		29FC371F20D88D04003DD1B0 /* UIImage+load */ = {
+			isa = PBXGroup;
+			children = (
+				29FC372020D88D54003DD1B0 /* UIImage+load.h */,
+				29FC372120D88D54003DD1B0 /* UIImage+load.m */,
+			);
+			path = "UIImage+load";
+			sourceTree = "<group>";
+		};
 		29FCC13720CA21AF00FB8EC6 /* UIAlertController+Show */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,6 +641,7 @@
 				2912A137207C8F790031F728 /* MBProgressHUD+SVPLike.m in Sources */,
 				2912A142207C94220031F728 /* BaseViewController.m in Sources */,
 				2912A108207C58AA0031F728 /* NSArray+ElegantNil.m in Sources */,
+				29FC372220D88D54003DD1B0 /* UIImage+load.m in Sources */,
 				2912A11C207C5A550031F728 /* NSString+MD5For32Bit.m in Sources */,
 				29F2447E20BFA790005516E8 /* TowViewController.m in Sources */,
 				2912A114207C59410031F728 /* UIColor+Hex.m in Sources */,

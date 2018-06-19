@@ -10,8 +10,7 @@
 
 @implementation UIImage (ChangeSize)
 
-- (UIImage *)changeImageSize:(CGSize)targetSize
-{
+- (UIImage *)changeImageSize:(CGSize)targetSize {
     UIImage *sourceImage = self;
     UIImage *newImage = nil;
     CGSize imageSize = sourceImage.size;
